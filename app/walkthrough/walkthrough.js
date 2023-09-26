@@ -1,0 +1,97 @@
+const c = (intentName, arg, code) => ({ intentName, arg, code });
+const { cleanData } = require('../../scure-cli/lib/common');
+const { getConv } = require('../../scure-cli/lib/conv-repository');
+const ScureCliIntentExecutor = require('../../scure-cli/lib/scure-cli-intent-executor');
+const { data } = require('../data/data-es');
+
+const commands = [
+  c('_welcome', ''),
+  c('look', ''),
+  c('walk', ''),
+  c('walk', 'dormitorio'),
+  c('look', 'artilugio'),
+  c('use', 'palancas'),
+  c('walk', 'recibidor'),
+  c('look', 'mural'),
+  c('look', 'estantería'),
+  c('look', 'libro del arte de los colores'),
+  c('look', 'libro del arte de los colores'),
+  c('look', 'libro del arte de los colores'),
+  c('look', 'libro del arte de los colores'),
+  c('look', 'libro del arte de los colores'),
+  c('pickup', 'arcon'),
+  c('use', 'candado'),
+  c('answer', ['2489']),
+  c('answer', ['6143']),
+  c('look', 'mural'),
+  c('use', 'candado'),
+  c('answer', ['3416']),
+  c('look', 'escudo'),
+  c('walk', 'sala de estar'),
+  c('look', 'chimenea bajo el cuadro'),
+  c('look', 'cuadro de encima'),
+  c('look', 'lobo'),
+  c('use', 'cuadro'),
+  c('use', 'chimenea'),
+  c('use', ['lobo', 'escudo']),
+  c('use', 'lobo'),
+  c('look', ''),
+  c('look', 'cuadro'),
+  c('walk', 'recibidor'),
+  c('look', 'libros'),
+  c('look', 'libro de espíritus'),
+  c('use', 'libro de espíritus'),
+  c('use', 'libro de espíritus'),
+  c('use', 'libro de espíritus'),
+  c('look', 'hechizo para bendecir agua'),
+  c('look', 'mesa'),
+  c('walk', 'cocina'),
+  c('look', 'mesa'),
+  c('pickup', 'vaso'),
+  c('use', ['espíritu']),
+  c('use', ['agua', 'espíritu']),
+  c('use', ['agua', 'hechizo']),
+  c('use', ['agua', 'espíritu']),
+  c('use', ['espíritu']),
+  c('look', 'mesa'),
+  c('look', 'armarios'),
+  c('use', 'armario de la cocina'),
+  c('walk', 'dormitorio'),
+  c('look', 'cama'),
+  c('use', 'cama'),
+  c('use', 'palancas'),
+  c('look', ''),
+  c('look', 'a mi'),
+  c('walk', 'dormitorio'),
+  c('look', 'artilugio'),
+  c('walk', 'sotano'),
+  c('look', 'caja'),
+  c('answer', ['6143']),
+  c('answer', ['3416']),
+  c('answer', ['9999']),
+  c('answer', ['3584']),
+  c('answer', ['4853']),
+  c('look', 'puerta'),
+  c('use', 'puerta'),
+  c('use', ['puerta', 'llave']),
+
+];
+
+
+try {
+  const executor = new ScureCliIntentExecutor(data)
+  const conv = getConv()
+  cleanData(conv)
+  commands.forEach(({ intentName, arg, code }) => {  
+    console.log('Data', conv.data);
+    console.log('command', { intentName, arg, code })
+    const response = executor.executeIntent(intentName, conv, { arg })
+    console.log('response', response)
+  })
+  
+} catch (ex) {
+  console.log('error', ex);
+  throw ex;
+}
+
+
