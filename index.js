@@ -1,7 +1,12 @@
 const { data } = require('./app/data/data');
-const {ScureCliApp} = require('./scure-cli/index.js')
+const {ScureCliApp} = require('./scure-cli/index.js');
+const { SimpleParser } = require('./scure-cli/simple-parser.js');
 
-const app = new ScureCliApp(data['es'])
+const superCutreParser = new SimpleParser()
+const app = new ScureCliApp(data['es'], superCutreParser)
 
-app.start()
+;(async() => {
+    await app.start()
+})()
+
 
