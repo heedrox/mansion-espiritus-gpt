@@ -7,7 +7,7 @@ const checkForSyns = originalIntent => scure => (conv, args) => {
   const command = getCommandForIntent(originalIntent);
   const commandToReplace = getCommandSyn(command, argument, conv.data, scure);
   const updatedIntent = commandToReplace ? getIntentForCommand(commandToReplace) : originalIntent;
-  updatedIntent(scure)(conv, args);
+  return updatedIntent(scure)(conv, args);
 };
 
 exports.checkForSyns = checkForSyns;

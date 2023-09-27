@@ -1,4 +1,4 @@
-const c = (intentName, arg, code) => ({ intentName, arg, code });
+const c = (intentName, arg, expectedEnd = false) => ({ intentName, arg, expectedEnd });
 const { cleanData } = require('../../scure-cli/lib/common');
 const { getConv } = require('../../scure-cli/lib/conv-repository');
 const ScureCliIntentExecutor = require('../../scure-cli/lib/scure-cli-intent-executor');
@@ -73,7 +73,7 @@ const commands = [
   c('answer', ['4853']),
   c('look', 'puerta'),
   c('use', 'puerta'),
-  c('use', ['puerta', 'llave']),
+  c('use', ['puerta', 'llave'], true),
 
 ];
 
@@ -82,11 +82,16 @@ try {
   const executor = new ScureCliIntentExecutor(data)
   const conv = getConv()
   cleanData(conv)
-  commands.forEach(({ intentName, arg, code }) => {  
-    console.log('Data', conv.data);
-    console.log('command', { intentName, arg, code })
+  commands.forEach(({ intentName, arg, expectedEnd }) => {  
+    console.log('data', conv.data);
+    console.log('command', { intentName, arg })
     const response = executor.executeIntent(intentName, conv, { arg })
     console.log('response', response)
+    if (expectedEnd && response.isEnd) {
+      console.log('*** FINAL SCENE, EVERYTHING CORRECT ***')
+    } else if (expectedEnd && !response.isEnd) {
+      console.log('*** WRONG. EXPECTED END, BUT WE DID NOT REACH IT ***')
+    }
   })
   
 } catch (ex) {

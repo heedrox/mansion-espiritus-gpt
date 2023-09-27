@@ -8,6 +8,7 @@ const fallback = scure => (conv) => {
   } */
   const response = scureFallback(conv.data, scure);
   conv.ask(response.sentence);
+  return response;
 };
 
 exports.fallback = fallback;
