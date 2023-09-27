@@ -117,7 +117,7 @@ exports.data = {
     anItem('vaso-cocina', 'Vaso', syns.items['vaso-cocina'], [
       aCondDesc('!unlocked:killed-spirit-fire', 'Un vaso lleno de agua, pero lejos de mi alcance.'),
       aCondDesc('unlocked:killed-spirit-fire', 'El vaso ha explotado y está inservible.'),
-      ], 'cocina', false, 'Imposible coger ese vaso.'),
+      ], 'cocina', false, 'Imposible coger ese vaso en la situación actual.'),
     anItem('armario-cocina', 'Armario', syns.items['armario-cocina'],
       'En el armario cuento hasta 5 juegos de cuchillos, cucharas y tenedores. '
     , 'cocina', false, 'No tiene sentido llevarme ningún cubierto, gracias.' ),

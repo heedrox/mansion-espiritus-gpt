@@ -41,8 +41,7 @@ exports.DESCRIPCION_MURAL = '<speak>' +
   '  <break strength="weak" time="500ms"/>' +
   'En pequeño, en una esquina, pone: ' +
   '  <break strength="weak" time="500ms"/>' +
-  '  S' +
-  '  <break strength="weak" time="500ms"/>E<break strength="weak" time="500ms"/>V<break strength="weak" time="500ms"/>E<break strength="weak" time="500ms"/>R<break strength="weak" time="500ms"/>L<break strength="weak" time="500ms"/>A' +
+  '  S<break strength="weak" time="500ms"/>E<break strength="weak" time="500ms"/>V<break strength="weak" time="500ms"/>E<break strength="weak" time="500ms"/>R<break strength="weak" time="500ms"/>L<break strength="weak" time="500ms"/>A' +
   '    </media>' +
   '    </par>' +
   '</speak>';
