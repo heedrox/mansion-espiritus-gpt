@@ -1,6 +1,6 @@
 const getArg = (data) => {
     if (data.length <= 1) return null
-    if (data.length === 2) return data[1]
+    if (data.length === 2) return [ data[1] ]
     return [ data[1], data[2] ]
 }
 

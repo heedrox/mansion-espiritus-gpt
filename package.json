@@ -41,13 +41,9 @@
     }
   },
   "dependencies": {
-    "actions-on-google": "^2.12.0",
-    "firebase-admin": "^8.6.1",
-    "firebase-functions": "^2.2.0",
     "https-proxy-agent": "^3.0.0",
     "pluralize": "^7.0.0",
-    "scure": "1.6.0",
-    "scure-dialogflow": "1.6.0"
+    "scure": "1.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
