@@ -1,10 +1,11 @@
-const { scureInventory } = require('scure').commands;
-const { sendResponse } = require('../lib/common');
+import { sendResponse } from '../lib/common.js';
+import { commands } from 'scure'
 
-const inventory = scure => (conv) => {
+const { scureInventory } = commands
+
+export const inventory = scure => (conv) => {
   const scureResponse = scureInventory(conv.data, scure);
 
   return sendResponse(conv, scure, scureResponse);
 };
 
-exports.inventory = inventory;

@@ -1,8 +1,9 @@
+import { cleanData } from '../../scure-cli/lib/common.js';
+import { getConv } from '../../scure-cli/lib/conv-repository.js';
+import { ScureCliIntentExecutor } from '../../scure-cli/lib/scure-cli-intent-executor.js';
+import data from '../data/data-es.js';
+
 const c = (intentName, arg, expectedEnd = false) => ({ intentName, arg, expectedEnd });
-const { cleanData } = require('../../scure-cli/lib/common');
-const { getConv } = require('../../scure-cli/lib/conv-repository');
-const ScureCliIntentExecutor = require('../../scure-cli/lib/scure-cli-intent-executor');
-const { data } = require('../data/data-es');
 
 const commands = [
   c('_welcome', ''),

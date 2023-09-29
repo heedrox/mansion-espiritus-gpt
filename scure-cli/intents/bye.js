@@ -1,8 +1,8 @@
-const { sendResponse } = require('../lib/common');
+import { commands } from 'scure'
 
-const { scureBye } = require('scure').commands;
+const { scureBye } = commands
 
-const bye = scure => (conv) => {
+export const bye = scure => (conv) => {
   const response = scureBye(conv.data, scure);
   conv.data = null;
   return {
@@ -11,4 +11,3 @@ const bye = scure => (conv) => {
   }
 };
 
-exports.bye = bye;

@@ -1,12 +1,13 @@
-const { answerArconCode } = require('../plugins/answer-arcon-code');
-const { answerCajaFuerte } = require('../plugins/answer-caja-fuerte');
-const { pickAndUnlock } = require('../plugins/pick-and-unlock');
-const { closeHell } = require('../plugins/close-hell');
-const { theEndingScene, anUnlockingAction, aPickingAction, anAnswer, aCommandSyn, Commands, aRoom, anItem, aLockedDestination, aCondDescUsage, aCondDesc, anUsage, aConditionalResponse, pluginExtension, anExpectAnswerAction } = require('scure').dsl;
-const { syns } = require('./syns-es');
-const { DOOR_AUDIOS, DESCRIPCION_INFIERNO, HELLO, DESCRIPCION_MURAL, OPEN_ARCON_AUDIO, WOLF_AUDIO, WOLF_SHIELD_AUDIO, FIRE_AUDIO, FIRE_KILL_AUDIO, CLOSE_HELL_AUDIO, OPEN_CAJAFUERTE_AUDIO, THE_END } = require('./audios-es');
+import { answerArconCode } from '../plugins/answer-arcon-code.js';
+import { answerCajaFuerte } from '../plugins/answer-caja-fuerte.js';
+import { pickAndUnlock } from '../plugins/pick-and-unlock.js';
+import { closeHell } from '../plugins/close-hell.js';
+import scure from 'scure';
+import { syns } from './syns-es.js';
+import { DOOR_AUDIOS, DESCRIPCION_INFIERNO, HELLO, DESCRIPCION_MURAL, OPEN_ARCON_AUDIO, WOLF_AUDIO, WOLF_SHIELD_AUDIO, FIRE_AUDIO, FIRE_KILL_AUDIO, CLOSE_HELL_AUDIO, OPEN_CAJAFUERTE_AUDIO, THE_END } from './audios-es.js';
 
-exports.data = {
+const { theEndingScene, anUnlockingAction, aPickingAction, anAnswer, aCommandSyn, Commands, aRoom, anItem, aLockedDestination, aCondDescUsage, aCondDesc, anUsage, aConditionalResponse, pluginExtension, anExpectAnswerAction } = scure.dsl
+export default {
   sentences: {
     help: 'Me puedes dar instrucciones para que vaya de un sitio a otro, para mirar objetos, usarlos y cogerlos. Por ejemplo, puedes pedirme que mire alrededor para ver qué hay. Quedan {time}. ',
     'help-no-screen': 'Me puedes dar instrucciones para que vaya de un sitio a otro, para mirar objetos, usarlos y cogerlos. Quedan {time}. ',

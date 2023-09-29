@@ -4,7 +4,7 @@ const synsSalaEstar = ['sala de estar', 'sala', 'salón', 'sala principal'];
 const synsDormitorio = ['dormitorio', 'dormidor', 'habitación', 'sala de la cama'];
 const synsSotano = ['sótano', 'bunker', 'bodega'];
 
-const syns = {
+export const syns = {
   rooms: {
     'recibidor': synsRecibidor,
     'cocina': synsCocina,
@@ -35,5 +35,3 @@ const syns = {
     'caja-sotano': ['caja fuerte', 'caja', 'cerradura', 'candado', 'combinación'],
   },
 };
-
-exports.syns = syns;

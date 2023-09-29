@@ -1,9 +1,9 @@
-const { cleanData } = require('./lib/common');
-const { getConv } = require('./lib/conv-repository');
-const ScureCliIntentExecutor = require('./lib/scure-cli-intent-executor');
-const { UserTextReader } = require('./lib/user-text-reader');
+import { cleanData } from './lib/common.js';
+import { getConv } from './lib/conv-repository.js';
+import { ScureCliIntentExecutor } from './lib/scure-cli-intent-executor.js';
+import { UserTextReader } from './lib/user-text-reader.js';
 
-class ScureCliApp {
+export class ScureCliApp {
   constructor(data, parser) {
     this.executor = new ScureCliIntentExecutor(data)
     this.userTextReader = new UserTextReader()
@@ -24,7 +24,7 @@ class ScureCliApp {
     let response = { sentence: '', isEnd: false }
     do {
       const text = await this.userTextReader.readUserText('(look/use/walk/pickup/inventory/answer) >')
-      const { intentName, arg } = this.parser.parse(text)
+      const { intentName, arg } = await this.parser.parse(text)
       try {
         response = this.executor.executeIntent(intentName, conv, { arg })
         await this.showResponse(response.sentence)
@@ -36,5 +36,4 @@ class ScureCliApp {
   }
 }
 
-exports.ScureCliApp = ScureCliApp
 

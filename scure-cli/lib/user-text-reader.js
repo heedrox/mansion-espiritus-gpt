@@ -1,6 +1,8 @@
-class UserTextReader {
+import readline from 'readline'
+
+export class UserTextReader {
   constructor() {
-    this.readline = require('readline').createInterface({
+    this.readline = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
     });  
@@ -18,5 +20,3 @@ class UserTextReader {
     this.readline.close()
   }
 }
-
-exports.UserTextReader = UserTextReader

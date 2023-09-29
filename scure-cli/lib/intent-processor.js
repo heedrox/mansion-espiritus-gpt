@@ -1,7 +1,8 @@
-const { fallback, timeOver } = require('../intents/index');
-const { scureInitializeState } = require('scure').commands;
-const { isTimeOver } = require('./common');
+import { fallback, timeOver } from '../intents/index.js';
+import { commands } from 'scure'
+import { isTimeOver } from './common.js';
 
+const { scureInitializeState } = commands
 
 const isBeginning = (scure, conv) => conv.data.numCommands < scure.getInit().welcome.length;
 const getIntentToUse = (scure, conv, args, intentFunction) => {
@@ -13,11 +14,11 @@ const getIntentToUse = (scure, conv, args, intentFunction) => {
   return intentFunction;
 };
 
-const intentProcessor = scure => intentFunction => (conv, args) => {
+export const intentProcessor = scure => intentFunction => (conv, args) => {
   // eslint-disable-next-line no-console
   conv.data = scureInitializeState(scure, conv.data);
   const intentToUse = getIntentToUse(scure, conv, args, intentFunction);
   return intentToUse(scure)(conv, args);
 };
 
-exports.intentProcessor = intentProcessor;
+

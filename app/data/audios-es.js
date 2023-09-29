@@ -1,4 +1,4 @@
-exports.HELLO = '<speak>' +
+export const HELLO = '<speak>' +
   '<par>' +
   '  <media end="thetext.end">' +
   '    <audio src="https://actions.google.com/sounds/v1/animals/crows_caw_in_field.ogg" soundLevel="+20dB"></audio>' +
@@ -15,7 +15,7 @@ exports.HELLO = '<speak>' +
   '<emphasis level="strong">Tenemos 20 minutos. ¡Rápido! Dime qué hacemos.</emphasis>' +
   '</speak>';
 
-exports.DESCRIPCION_INFIERNO = '<speak>' +
+export const DESCRIPCION_INFIERNO = '<speak>' +
   '  <par>' +
   '    <media begin="2s" soundLevel="-15dB" end="thetext.end">' +
   '      <audio src="https://actions.google.com/sounds/v1/horror/monster_alien_growl_pained.ogg"></audio>' +
@@ -31,7 +31,7 @@ exports.DESCRIPCION_INFIERNO = '<speak>' +
   '  </par>' +
   '</speak>';
 
-exports.DESCRIPCION_MURAL = '<speak>' +
+export const DESCRIPCION_MURAL = '<speak>' +
   '  <par>' +
   '    <media end="thetext.end" soundLevel="10dB">' +
   '      <audio src="https://actions.google.com/sounds/v1/foley/feeling_paper.ogg" clipBegin="9s"/>' +
@@ -46,22 +46,22 @@ exports.DESCRIPCION_MURAL = '<speak>' +
   '    </par>' +
   '</speak>';
 
-exports.DOOR_AUDIOS = [
+export const DOOR_AUDIOS = [
   '<audio src="https://actions.google.com/sounds/v1/doors/creaking_wooden_door.ogg" clipEnd="2700ms"/>',
   '<audio src="https://actions.google.com/sounds/v1/doors/locked_doorknob_jiggle.ogg"/>',
   '<audio src="https://actions.google.com/sounds/v1/doors/wood_door_open_close.ogg"/>',
   '<audio src="https://actions.google.com/sounds/v1/doors/wood_door_open.ogg"/>'
 ];
 
-exports.OPEN_ARCON_AUDIO = '<audio src="https://actions.google.com/sounds/v1/doors/wood_rattle.ogg" soundLevel="-5dB"/>' +
+export const OPEN_ARCON_AUDIO = '<audio src="https://actions.google.com/sounds/v1/doors/wood_rattle.ogg" soundLevel="-5dB"/>' +
   '<prosody pitch="+2st" rate="medium" volume="x-loud">¡Bingo!</prosody>' +
   '<break time="500ms"></break>' +
   'El bául se abre. Hay un escudo con el dibujo de un lobo salvaje en su interior.' +
   '<emphasis level="reduced">Me lo llevo.</emphasis>';
 
-exports.WOLF_AUDIO = '<audio src="https://actions.google.com/sounds/v1/animals/animal_bark_and_growl.ogg" clipEnd="2800ms"/>';
+export const WOLF_AUDIO = '<audio src="https://actions.google.com/sounds/v1/animals/animal_bark_and_growl.ogg" clipEnd="2800ms"/>';
 
-exports.WOLF_SHIELD_AUDIO = exports.WOLF_AUDIO +
+export const WOLF_SHIELD_AUDIO = WOLF_AUDIO +
   'El espíritu me ataca, así que preparo el escudo.' +
   '<audio src="https://actions.google.com/sounds/v1/impacts/windshield_hit_with_bar.ogg" clipEnd="2700ms"/>' +
   '<par>' +
@@ -74,7 +74,7 @@ exports.WOLF_SHIELD_AUDIO = exports.WOLF_AUDIO +
   '  </media>' +
   '</par>';
 
-exports.FIRE_AUDIO = '<par>' +
+export const FIRE_AUDIO = '<par>' +
   '<media xml:id="fire" end="grito.end">' +
   '  <audio src="https://actions.google.com/sounds/v1/ambiences/fire.ogg" soundLevel="+25dB"/>' +
   '  </media>' +
@@ -83,7 +83,7 @@ exports.FIRE_AUDIO = '<par>' +
   '</media>' +
   '</par>';
 
-exports.FIRE_KILL_AUDIO = '<par>' +
+export const FIRE_KILL_AUDIO = '<par>' +
   '  <media xml:id="theaudio" end="thetext.end">' +
   '    <audio src="https://actions.google.com/sounds/v1/water/fountain_water_bubbling.ogg"/>' +
   '  </media>' +
@@ -101,7 +101,7 @@ exports.FIRE_KILL_AUDIO = '<par>' +
   '</par>' +
   'El espíritu de fuego se desintegra. ¡Bien hecho!';
 
-exports.CLOSE_HELL_AUDIO = ' <speak>' +
+export const CLOSE_HELL_AUDIO = ' <speak>' +
   '  <par>' +
   '   <media begin="2s" soundLevel="-15dB" end="thetext.end-3s" fadeOutDur="6s">' +
   '      <audio src="https://actions.google.com/sounds/v1/horror/monster_alien_growl_pained.ogg"></audio>' +
@@ -144,11 +144,11 @@ exports.CLOSE_HELL_AUDIO = ' <speak>' +
   '</speak>';
 
 
-exports.OPEN_CAJAFUERTE_AUDIO = '<audio src="https://actions.google.com/sounds/v1/cartoon/pop.ogg"/>' +
+export const OPEN_CAJAFUERTE_AUDIO = '<audio src="https://actions.google.com/sounds/v1/cartoon/pop.ogg"/>' +
   '<prosody pitch="+2st" rate="medium" volume="x-loud">¡Bingo!</prosody>' +
   'La caja fuerte se abre. Dentro hay una llave. La cojo sin dudar.';
 
-exports.THE_END = '<speak><audio src="https://actions.google.com/sounds/v1/doors/key_in_lock.ogg" clipEnd="3s"/>' +
+export const THE_END = '<speak><audio src="https://actions.google.com/sounds/v1/doors/key_in_lock.ogg" clipEnd="3s"/>' +
   '<prosody pitch="+2st" rate="medium" volume="x-loud">¡Sí!</prosody>' +
   'La puerta se ha abierto. La ambulancia ya está fuera. ¡Estás salvado! ' +
   '¡Y también hemos salvado a la humanidad! ' +

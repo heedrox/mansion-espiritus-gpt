@@ -8,16 +8,16 @@ const substitute = (sentence, args) => {
   return Object.keys(args).reduce(replacer, sentence);
 };
 
-exports.getArgument = (args, argName) => {
+export const getArgument = (args, argName) => {
   const value = args[argName];
   if (!value) return null;
   if (typeof value === 'object' && typeof value.length === 'number') return value[0];
   return value;
 };
 
-exports.getArgumentList = (args, argName) => forceItemsToBeArray(args[argName]);
+export const getArgumentList = (args, argName) => forceItemsToBeArray(args[argName]);
 
-exports.isEmptyArg = (arg) => {
+export const isEmptyArg = (arg) => {
   if (!arg) return true;
   if (typeof arg.length !== 'undefined' && arg.length === 0) return true;
   if (JSON.stringify(arg).trim() === '[]') return true;
@@ -26,19 +26,19 @@ exports.isEmptyArg = (arg) => {
   return false;
 };
 
-exports.overwriteDataFrom = (scureResponse, conv) => {
+export const overwriteDataFrom = (scureResponse, conv) => {
   if (scureResponse.data) {
     conv.data = scureResponse.data;
   }
 };
 
-exports.isTimeOver = (data, scure) => {
+export const isTimeOver = (data, scure) => {
   const startTime = new Date(JSON.parse(data.startTime || JSON.stringify(new Date())));
   const currentTime = new Date();
   return (currentTime.getTime() - startTime.getTime()) > (scure.data.init.totalMinutes * 60 * 1000);
 };
 
-exports.cleanData = (conv) => {
+export const cleanData = (conv) => {
   conv.data.numCommands = 0;
   conv.data.roomId = null;
   conv.data.startTime = null;
@@ -47,7 +47,7 @@ exports.cleanData = (conv) => {
   return conv;
 };
 
-exports.baseChars = str => str.toLowerCase().replace(/[áäàÀÁÂÃÄÅ]/g, 'a')
+export const baseChars = str => str.toLowerCase().replace(/[áäàÀÁÂÃÄÅ]/g, 'a')
   .replace(/[èéèÈÉÊË]/g, 'e')
   .replace(/[íìIÎ]/g, 'i')
   .replace(/[óòÓÔ]/g, 'o')
@@ -74,7 +74,7 @@ const speak = (sentence, conv) => {
   }
 };
 
-exports.sendResponse = (conv, scure, scureResponse) => {
+export const sendResponse = (conv, scure, scureResponse) => {
   const finalSentence = scureResponse.sentence;
   if (finalSentence.isEndingScene) {
     const finalWords = getFinalSentence(scure, conv, finalSentence);

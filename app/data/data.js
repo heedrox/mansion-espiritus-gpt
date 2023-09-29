@@ -1,6 +1,6 @@
-const esData = require('./data-es.js').data;
+import esData from './data-es.js';
 
-exports.data = {
+export const data = {
   es: esData,
   en: {},
 };

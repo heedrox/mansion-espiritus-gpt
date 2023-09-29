@@ -1,9 +1,11 @@
-const { buildScureFor } = require('scure').scure;
-const { intentProcessor } = require('./intent-processor');
-const { checkForSyns } = require('./check-for-syns');
-const { bye, fallback, help, inventory, look, pickup, use, walk, welcome, answer } = require('../intents');
+import { scure } from 'scure'
+import { intentProcessor } from './intent-processor.js';
+import { checkForSyns } from './check-for-syns.js';
+import { bye, fallback, help, inventory, look, pickup, use, walk, welcome, answer } from '../intents/index.js';
 
-class ScureCliIntentExecutor {
+const { buildScureFor } = scure
+ 
+export class ScureCliIntentExecutor {
     constructor(data) {
         const scure = buildScureFor(data);
         this.scure = scure
@@ -28,5 +30,3 @@ class ScureCliIntentExecutor {
         return this.executor[intentName](conv, arg)
     }
 }
-
-module.exports = ScureCliIntentExecutor

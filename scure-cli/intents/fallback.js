@@ -1,6 +1,8 @@
-const { scureFallback } = require('scure').commands;
+import { commands } from 'scure'
 
-const fallback = scure => (conv) => {
+const { scureFallback } = commands
+
+export const fallback = scure => (conv) => {
   /* if (conv.getRawInput() === 'activateft') {
     conv.data.testFT = true;
     conv.ask('ok. ¿y ahora qué?');
@@ -11,4 +13,3 @@ const fallback = scure => (conv) => {
   return response;
 };
 
-exports.fallback = fallback;

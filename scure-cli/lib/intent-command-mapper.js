@@ -1,5 +1,7 @@
-const { look, pickup, use, walk } = require('../intents');
-const { Commands } = require('scure').dsl;
+import { look, pickup, use, walk } from '../intents/index.js';
+import { dsl } from 'scure'
+
+const { Commands } = dsl
 
 const INTENT_COMMANDS_MAP = new Map([
   [walk, Commands.WALK],
@@ -9,8 +11,5 @@ const INTENT_COMMANDS_MAP = new Map([
 ]);
 
 const byCommand = command => intent => INTENT_COMMANDS_MAP.get(intent) === command;
-const getCommandForIntent = intent => INTENT_COMMANDS_MAP.get(intent);
-const getIntentForCommand = command => [...INTENT_COMMANDS_MAP.keys()].find(byCommand(command));
-
-exports.getCommandForIntent = getCommandForIntent;
-exports.getIntentForCommand = getIntentForCommand;
+export const getCommandForIntent = intent => INTENT_COMMANDS_MAP.get(intent);
+export const getIntentForCommand = command => [...INTENT_COMMANDS_MAP.keys()].find(byCommand(command));

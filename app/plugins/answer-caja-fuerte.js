@@ -18,7 +18,7 @@ const POSSIBLE_ANSWERS = {
   'default': 'caja-fuerte-answer-default'
 };
 
-exports.answerCajaFuerte = (data, scure, userAnswer) => {
+export const answerCajaFuerte = (data, scure, userAnswer) => {
   if (typeof userAnswer === 'undefined') return '';
   const cleanAnswer = numeralize(userAnswer);
   const sentence = typeof POSSIBLE_ANSWERS[cleanAnswer] !== 'undefined' ? POSSIBLE_ANSWERS[cleanAnswer] : POSSIBLE_ANSWERS['default'];

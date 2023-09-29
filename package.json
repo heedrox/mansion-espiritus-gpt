@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "https-proxy-agent": "^3.0.0",
+    "node-fetch": "^3.3.2",
     "pluralize": "^7.0.0",
     "scure": "1.6.0"
   },
@@ -58,5 +59,6 @@
     "sinon": "^7.5.0",
     "sinon-chai": "^3.3.0"
   },
-  "private": true
+  "private": true,
+  "type": "module"
 }

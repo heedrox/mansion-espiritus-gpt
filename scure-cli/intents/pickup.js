@@ -1,10 +1,10 @@
-const { getArgument } = require('../lib/common');
-const { overwriteDataFrom } = require('../lib/common');
-const { sendResponse } = require('../lib/common');
+import { getArgument, overwriteDataFrom, sendResponse } from '../lib/common.js';
+import { commands } from 'scure'
 
-const { scurePickup } = require('scure').commands;
+const { scurePickup } = commands
 
-const pickup = scure => (conv, args) => {
+
+export const pickup = scure => (conv, args) => {
   const itemName = getArgument(args, 'arg');
 
   const scureResponse = scurePickup(itemName, conv.data, scure);
@@ -13,4 +13,3 @@ const pickup = scure => (conv, args) => {
   return sendResponse(conv, scure, scureResponse);
 };
 
-exports.pickup = pickup;

@@ -1,8 +1,8 @@
-const { scureTimeover } = require('scure').commands;
+import { commands } from 'scure'
 
-const timeOver = scure => (conv) => {
+const { scureTimeover } = commands
+
+export const timeOver = scure => (conv) => {
   const response = scureTimeover(conv.data, scure);
   conv.close(response.sentence);
 };
-
-exports.timeOver = timeOver;

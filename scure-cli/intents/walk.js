@@ -1,7 +1,8 @@
-const { getArgument } = require('../lib/common');
-const { overwriteDataFrom } = require('../lib/common');
-const { scureWalk } = require('scure').commands;
-const { sendResponse } = require('../lib/common');
+import { getArgument, overwriteDataFrom } from '../lib/common.js';
+import { commands } from 'scure'
+import { sendResponse } from '../lib/common.js';
+
+const { scureWalk } = commands
 
 const hasValue = x => (typeof x !== 'undefined') && (x!=='');
 
@@ -20,7 +21,7 @@ const addWalkingSoundIfRoomChanges = (response, previousRoom, conv, scure) => {
   response.sentence = soundToAdd + response.sentence;
 };
 
-const walk = scure => (conv, args) => {
+export const walk = scure => (conv, args) => {
   const arg = getArgument(args, 'arg');
   const previousRoom = conv.data.roomId;
 
@@ -31,4 +32,3 @@ const walk = scure => (conv, args) => {
   return sendResponse(conv, scure, scureResponse);
 };
 
-exports.walk = walk;

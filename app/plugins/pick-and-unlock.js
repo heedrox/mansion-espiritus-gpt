@@ -1,4 +1,6 @@
-const { stateUnlock } = require('scure').lib;
+import { lib } from 'scure'
+
+const { stateUnlock } = lib
 
 const addToInventory = (data, itemId) => {
   data.inventory = data.inventory || [];
@@ -8,7 +10,7 @@ const addToInventory = (data, itemId) => {
   return data;
 };
 
-exports.pickAndUnlock = (itemid, lock, response) => (data, scure, userAnswer) => {
+export const pickAndUnlock = (itemid, lock, response) => (data, scure, userAnswer) => {
   addToInventory(data, itemid);
   stateUnlock(data, lock);
   return response;

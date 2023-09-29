@@ -1,7 +1,9 @@
-const { scureAnswer } = require('scure').commands;
-const { overwriteDataFrom, sendResponse, getArgument } = require('../lib/common');
+import { getArgument, overwriteDataFrom, sendResponse } from '../lib/common.js';
+import { commands } from 'scure'
 
-const answer = scure => (conv, args) => {
+const { scureAnswer } = commands
+
+export const answer = scure => (conv, args) => {
   const userAnswer = getArgument(args, 'arg');
 
   const scureResponse = scureAnswer(userAnswer, conv.data, scure);
@@ -10,5 +12,3 @@ const answer = scure => (conv, args) => {
 
   return sendResponse(conv, scure, scureResponse);
 };
-
-exports.answer = answer;

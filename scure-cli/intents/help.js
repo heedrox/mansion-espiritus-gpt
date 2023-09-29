@@ -1,5 +1,7 @@
-const { sendResponse } = require('../lib/common');
-const { scureHelp } = require('scure').commands;
+import { sendResponse } from '../lib/common.js';
+import { commands } from 'scure'
+
+const { scureHelp } = commands
 
 const helpWithoutMap = scure => (conv) => {
   const response = scureHelp(conv.data, scure);
@@ -8,6 +10,4 @@ const helpWithoutMap = scure => (conv) => {
 };
 
 // eslint-disable-next-line no-confusing-arrow
-const help = scure => conv => helpWithoutMap(scure)(conv);
-
-exports.help = help;
+export const help = scure => conv => helpWithoutMap(scure)(conv);
