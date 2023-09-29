@@ -1,3 +1,9 @@
 {
-    "setupFilesAfterEnv": ["<rootDir>/test/common.js"]
+    "setupFilesAfterEnv": ["<rootDir>/test/common.js"],
+    "transformIgnorePatterns": [
+        "node_modules/(?!(node-fetch)/)"
+      ],
+    "transform": {
+        "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+    }
 }
