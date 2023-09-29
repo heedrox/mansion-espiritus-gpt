@@ -1,5 +1,5 @@
-const { stateIsUnlocked } = require('scure').lib;
-const { closeHell } = require('../../app/plugins/close-hell');
+import { stateIsUnlocked } from 'scure/src/lib';
+import { closeHell } from '../../app/plugins/close-hell';
 
 describe('When closing hell', () => {
   let scure;
@@ -12,14 +12,14 @@ describe('When closing hell', () => {
   });
 
   it('it changes room to sotano', () => {
-    expect(data.roomId).to.equal('sotano');
+    expect(data.roomId).toEqual('sotano');
   });
 
   it('says response', () => {
-    expect(response).to.equal('RESPONSE');
+    expect(response).toEqual('RESPONSE');
   });
 
   it('unlocks closed-hell lock', () => {
-    expect(stateIsUnlocked(data, 'closed-hell')).to.equal(true);
+    expect(stateIsUnlocked(data, 'closed-hell')).toEqual(true);
   });
 });

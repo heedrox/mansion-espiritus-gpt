@@ -1,4 +1,5 @@
-const { answerArconCode } = require('../../app/plugins/answer-arcon-code');
+import { answerArconCode } from '../../app/plugins/answer-arcon-code';
+import { buildScureFor } from 'scure'
 
 describe('Answer arcon code responds when user fails', () => {
 
@@ -14,7 +15,7 @@ describe('Answer arcon code responds when user fails', () => {
 
     const response = answerArconCode(data, scure, userAnswer);
 
-    expect(response).to.equal('No, ese número no abre el baúl.');
+    expect(response).toEqual('No, ese número no abre el baúl.');
   });
 
   it('responds help sentence when answer is almost correct (and backwards)', () => {
@@ -23,7 +24,7 @@ describe('Answer arcon code responds when user fails', () => {
 
     const response = answerArconCode(data, scure, userAnswer);
 
-    expect(response).to.contains('Pero me pregunto si las letras');
+    expect(response).toContain('Pero me pregunto si las letras');
   });
 
 

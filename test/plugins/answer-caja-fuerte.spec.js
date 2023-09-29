@@ -1,4 +1,4 @@
-const { answerCajaFuerte } = require('../../app/plugins/answer-caja-fuerte');
+import { answerCajaFuerte } from '../../app/plugins/answer-caja-fuerte';
 
 describe('Answer caja fuerte responds when user fails', () => {
 
@@ -14,7 +14,7 @@ describe('Answer caja fuerte responds when user fails', () => {
 
     const response = answerCajaFuerte(data, scure, userAnswer);
 
-    expect(response).to.equal('No creo que haya que ponerlo al revés. Demasiado rebuscado.');
+    expect(response).toEqual('No creo que haya que ponerlo al revés. Demasiado rebuscado.');
   });
 
   it('easter egg when same code as first one', () => {
@@ -23,7 +23,7 @@ describe('Answer caja fuerte responds when user fails', () => {
 
     const response = answerCajaFuerte(data, scure, userAnswer);
 
-    expect(response).to.contains('¿No has oído nunca lo de que un código solo sirve una vez? Venga, dime qué hacemos ahora.');
+    expect(response).toContain('¿No has oído nunca lo de que un código solo sirve una vez? Venga, dime qué hacemos ahora.');
   });
 
   it('easter egg when same code as first one backwards', () => {
@@ -32,7 +32,7 @@ describe('Answer caja fuerte responds when user fails', () => {
 
     const response = answerCajaFuerte(data, scure, userAnswer);
 
-    expect(response).to.contains('¿No has oído nunca lo de que un código solo sirve una vez? Venga, dime qué hacemos ahora.');
+    expect(response).toContain('¿No has oído nunca lo de que un código solo sirve una vez? Venga, dime qué hacemos ahora.');
   });
 
   it('easter egg when same code as first one backwards', () => {
@@ -41,7 +41,7 @@ describe('Answer caja fuerte responds when user fails', () => {
 
     const response = answerCajaFuerte(data, scure, userAnswer);
 
-    expect(response).to.contains('No, parece que ese código no es');
+    expect(response).toContain('No, parece que ese código no es');
   });
 
 });

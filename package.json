@@ -4,7 +4,7 @@
   "scripts": {
     "lint": "eslint .",
     "start": "npm run shell",
-    "test": "mocha --require ./test/common.cjs --require source-map-support/register 'test/**/*.spec.js' test/**/*.spec.js",
+    "test": "jest test/**/*.spec.js",
     "tdd": "npm-watch test",
     "walkthrough": "node app/walkthrough/walkthrough.js",
     "walkthrough:watch": "npm-watch walkthrough"
@@ -47,17 +47,18 @@
     "scure": "1.6.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "^6.26.0",
-    "chai": "^4.2.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.23.0",
     "eslint": "^5.12.0",
     "eslint-plugin-promise": "^4.0.1",
-    "mocha": "^6.2.2",
-    "npm-watch": "^0.6.0",
-    "sinon": "^7.5.0",
-    "sinon-chai": "^3.3.0"
+    "jest": "^29.7.0",
+    "npm-watch": "^0.6.0"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": ["@babel/plugin-transform-modules-commonjs"]
+      }
+    }
   },
   "private": true,
   "type": "module"

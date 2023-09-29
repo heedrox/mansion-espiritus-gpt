@@ -1,5 +1,5 @@
-const { stateIsUnlocked } = require('scure').lib;
-const { pickAndUnlock } = require('../../app/plugins/pick-and-unlock');
+import { stateIsUnlocked } from 'scure/src/lib';
+import { pickAndUnlock } from '../../app/plugins/pick-and-unlock';
 
 describe('Combined actions', () => {
 
@@ -15,9 +15,9 @@ describe('Combined actions', () => {
 
     const response = pickAndUnlock('itemid', 'lockid', 'DONE')(data, scure, userAnswer);
 
-    expect(response).to.equal('DONE');
-    expect(stateIsUnlocked(data, 'lockid')).to.equal(true);
-    expect(data.inventory).to.contains('itemid');
+    expect(response).toEqual('DONE');
+    expect(stateIsUnlocked(data, 'lockid')).toEqual(true);
+    expect(data.inventory).toContain('itemid');
   });
 
 });
