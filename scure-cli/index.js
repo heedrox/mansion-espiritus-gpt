@@ -13,6 +13,7 @@ export class ScureCliApp {
   async showResponse(sentence) {
     const strippedResponse = sentence.replace(/<[^>]*>?/gm, '');
     const spacesRemoved = strippedResponse.replace(/ +/g, ' ');
+    console.log(spacesRemoved)
   }
 
   async start() {
@@ -23,16 +24,18 @@ export class ScureCliApp {
     let response = { sentence: '', isEnd: false }
     do {
       const text = await this.userTextReader.readUserText('(look/use/walk/pickup/inventory/answer) >')
-      const { intentName, arg } = await this.parser.parse(text)
+            
       try {
+        const { intentName, arg } = await this.parser.parse(text)
         response = this.executor.executeIntent(intentName, conv, { arg })
         await this.showResponse(response.sentence)
-      } catch (_) {
-        await this.showResponse('No he podido procesar esta petición, lo siento.')
+      } catch (error) {
+        console.error('Hubo un error procesando la petición. ', error)
       }      
     } while (!response.isEnd)
     this.userTextReader.close()
   }
+  
 }
 
 
