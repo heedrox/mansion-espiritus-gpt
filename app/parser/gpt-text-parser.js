@@ -16,7 +16,15 @@ export class GptTextParser {
 
     async parseWithGpt(text, conversation) {
         const response = await queryGpt(buildPrompt(conversation, text), this.openAiKey)
-        return JSON.parse(response)
+        try {
+            return JSON.parse(response)
+        } catch(_) {
+            return {
+                intentName: "say",
+                arg: [ response ]
+            }
+        }
+        
     }
 
     async parse(text, conversation = []) {

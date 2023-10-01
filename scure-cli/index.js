@@ -29,7 +29,7 @@ export class ScureCliApp {
             
       try {
         this.conversation.push({ user: 'USER', sentence: text })
-        const { intentName, arg } = await this.parser.parse(text, conversation)
+        const { intentName, arg } = await this.parser.parse(text, this.conversation)
         response = this.executor.executeIntent(intentName, conv, { arg })
         await this.showResponse(response.sentence)
         this.conversation.push({ user: 'DRON', sentence: response.sentence })
