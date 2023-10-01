@@ -23,6 +23,7 @@ export class ScureCliIntentExecutor {
             'inventory': scureIntentProcessor(inventory),
             'answer': scureIntentProcessor(answer),
             'help': scureIntentProcessor(help),
+            'say':  scureIntentProcessor(say)
         }
     }
 

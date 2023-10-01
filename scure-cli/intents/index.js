@@ -9,4 +9,4 @@ export { welcome } from './welcome.js'
 export { bye } from './bye.js'
 export { timeOver } from './time-over.js'
 export { answer } from './answer.js'
-
+export { say } from './say.js'
