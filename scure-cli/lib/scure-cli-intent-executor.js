@@ -1,7 +1,7 @@
 import { scure } from 'scure'
 import { intentProcessor } from './intent-processor.js';
 import { checkForSyns } from './check-for-syns.js';
-import { bye, fallback, help, inventory, look, pickup, use, walk, welcome, answer } from '../intents/index.js';
+import { bye, fallback, help, inventory, look, pickup, use, walk, welcome, answer, say } from '../intents/index.js';
 
 const { buildScureFor } = scure
  

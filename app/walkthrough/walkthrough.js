@@ -74,6 +74,7 @@ const commands = [
   c('answer', ['4853']),
   c('look', 'puerta'),
   c('use', 'puerta'),
+  c('say', 'Hello, everything ok? Let\'s go for the end!'),
   c('use', ['puerta', 'llave'], true),
 
 ];
