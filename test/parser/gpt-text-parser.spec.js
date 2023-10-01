@@ -11,7 +11,7 @@ describe('Gpt Text parser', () => {
     })
     it('parses a text with gpt', async () => {
         const parser = new GptTextParser(OPEN_AI_KEY)
-        const response = await parser.parse('mirar habitacion')
+        const response = await parser.parse('mirar habitación')
 
         expect(response).toStrictEqual({ intentName: 'look', arg: ['habitación'] })
     })

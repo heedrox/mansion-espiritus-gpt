@@ -1,9 +1,11 @@
-# La Mansión de los Espíritus
+# La Mansión de los Espíritus (GPT)
 
-Un juego para Google Assistant. Cierra la puerta del infierno antes de que los demonios se apoderen de esta dimensión.
+Un juego escape room para el live coding de Garaje de Ideas. Utilizamos GPT
+para hacer más amable la interfaz de un escape room.
+
+Cierra la puerta del infierno antes de que los demonios se apoderen de esta dimensión.
+
 Explora la Mansión, resuelve puzzles y salva a la humanidad.
-
-https://assistant.google.com/services/a/uid/000000e83912279c?hl=es
 
 ## Desarrollo
 
