@@ -8,6 +8,7 @@ export class ScureCliApp {
     this.executor = new ScureCliIntentExecutor(data)
     this.userTextReader = new UserTextReader()
     this.parser = parser
+    this.conversation = []
   }
 
   async showResponse(sentence) {
@@ -21,14 +22,17 @@ export class ScureCliApp {
     cleanData(conv)
     const welcomeResponse = this.executor.executeIntent('_welcome', conv, { arg: null })
     await this.showResponse(welcomeResponse.sentence)
+    this.conversation.push({ user: 'DRON', sentence: welcomeResponse.sentence })
     let response = { sentence: '', isEnd: false }
     do {
       const text = await this.userTextReader.readUserText('(look/use/walk/pickup/inventory/answer) >')
             
       try {
-        const { intentName, arg } = await this.parser.parse(text)
+        this.conversation.push({ user: 'USER', sentence: text })
+        const { intentName, arg } = await this.parser.parse(text, conversation)
         response = this.executor.executeIntent(intentName, conv, { arg })
         await this.showResponse(response.sentence)
+        this.conversation.push({ user: 'DRON', sentence: response.sentence })
       } catch (error) {
         console.error('Hubo un error procesando la petición. ', error)
       }      

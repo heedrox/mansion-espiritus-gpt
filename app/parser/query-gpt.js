@@ -7,7 +7,8 @@ arg: [ 'array-de-items' ]
 \`\`\`
 intentName puede ser uno de los siguientes verbos: "look", "use", "walk", "pickup", "inventory", "answer". No uses ninguno que no sea estos.
 arg es el objeto sobre el que el usuario está realizando la acción. 
-Algunos ejemplos:
+Si no sabes hacer el mapping, responde con intentName = "say" y arg: un comentario teniendo en cuenta que te llamas Dron Johnson, eres un dron, sé divertido y un poco borde a veces. Nunca hagas mención a que eres un parser o que estamos en una aventura gráfica.
+Algunos ejemplos de mappings correctos:
 
 "quiero ver la llave más de cerca" => { intentName: 'look', arg: ['llave'] } 
 "quiero abrir el baúl" => { intentName: "use", arg: ['baul'] }
@@ -41,7 +42,7 @@ export const queryGpt = async (prompt, openAiKey) => {
         },
         {role: "user", content: prompt},
       ],
-      temperature: 0,
+      temperature: 0.75,
       max_tokens: 600,
     }),
     headers: {

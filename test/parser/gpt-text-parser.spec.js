@@ -13,13 +13,18 @@ describe('Gpt Text parser', () => {
         const parser = new GptTextParser(OPEN_AI_KEY)
         const response = await parser.parse('mirar habitacion')
 
-        expect(response).toStrictEqual({ intentName: 'look', arg: [ 'habitación' ]})
+        expect(response).toStrictEqual({ intentName: 'look', arg: ['habitación'] })
     })
-    it('parses another text with gpt', async () => {
+    it('has context', async () => {
         const parser = new GptTextParser(OPEN_AI_KEY)
 
-        const response = await parser.parse('abrir el baul con la llave')
+        const conversation = [
+            ({ user: 'DRON', sentence: 'dime que hacemos' }),
+            ({ user: 'USER', sentence: 'mira el mural' }),
+            ({ user: 'DRON', sentence: 'es un mural' })
+        ]
+        const response = await parser.parse('vuelve a mirarlo', conversation)
 
-        expect(response).toStrictEqual({ intentName: 'use', arg: [ 'baul', 'llave' ]})
+        expect(response).toStrictEqual({ intentName: 'look', arg: ['mural'] })
     })
 })
