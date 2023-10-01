@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 const ROLE_SYSTEM_INSTRUCTIONS = `Eres un parseador de texto para aventuras gráficas. El usuario indica lo que quiere hacer en lenguaje natural, y tú lo conviertes en un JSON con el siguiente formato:
 \`\`\`
 {
@@ -44,12 +42,12 @@ export const queryGpt = async (prompt, openAiKey) => {
         {role: "user", content: prompt},
       ],
       temperature: 0,
-      max_tokens: 400,
+      max_tokens: 600,
     }),
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${openAiKey}`,
-      "Hello-From": "abbrevia.me",
+      "Hello-From": "EscapeFromTheMaldicionEspiritus",
     },
   });
 

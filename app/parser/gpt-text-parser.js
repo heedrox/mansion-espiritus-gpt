@@ -1,13 +1,13 @@
 import { queryGpt } from "./query-gpt.js"
 
 export class GptTextParser {
-    constructor() {
-
+    constructor(openAiKey) {
+        this.openAiKey = openAiKey
     }
 
     async parseWithGpt(text) {
-        const response = await queryGpt(text, openAikey)
-        return response
+        const response = await queryGpt(text, this.openAiKey)
+        return JSON.parse(response)
     }
 
     async parse(text) {

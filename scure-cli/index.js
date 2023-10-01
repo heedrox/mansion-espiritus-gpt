@@ -13,7 +13,6 @@ export class ScureCliApp {
   async showResponse(sentence) {
     const strippedResponse = sentence.replace(/<[^>]*>?/gm, '');
     const spacesRemoved = strippedResponse.replace(/ +/g, ' ');
-    console.log(spacesRemoved)
   }
 
   async start() {
