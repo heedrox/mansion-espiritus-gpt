@@ -36,7 +36,11 @@ const processUserInput = (evt) => {
 
 ;(async() => {
     document.getElementById("userInputForm").addEventListener("submit", processUserInput)
-    app.start()
+    document.getElementById("button-start").addEventListener("click", () => {
+        app.start()
+        document.getElementById("play-area").classList.remove("invisible")
+        document.getElementById("start-area").classList.add("d-none")
+    })    
 })()
 
 

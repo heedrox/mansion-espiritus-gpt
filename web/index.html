@@ -11,14 +11,19 @@
   </head>
   <body>
     <img class="img-fluid"  src="https://mansion-espiritus-lkgoxs.firebaseapp.com/the-mansion-map.jpg" />
-    <p id="content" class="content-box p-3"></p>
-    <form id="userInputForm">     
-        <div class="input-group p-3">
-        <input type="text" id="userInput" class="form-control" placeholder="Dile algo a Dron" aria-label="Comando para Dron" aria-describedby="button-addon2" autocomplete="off">
-        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">&gt;</button>
-        </div>
-    </form>
-    
+    <div id="start-area" class="col-md-12 text-center p-5">
+      <button class="btn btn-danger m-auto" type="button" id="button-start">EMPEZAR</button>
+    </div>
+    <div id="play-area" class="invisible">
+      <p id="content" class="content-box p-3"></p>
+      
+      <form id="userInputForm">     
+          <div class="input-group p-3">
+          <input type="text" id="userInput" class="form-control" placeholder="Dile algo a Dron" aria-label="Comando para Dron" aria-describedby="button-send" autocomplete="off">
+          <button class="btn btn-outline-secondary" type="submit" id="button-send">&gt;</button>
+          </div>
+      </form>
+    </div>
     <script src="./main.js"></script>
   </body>
 </html>

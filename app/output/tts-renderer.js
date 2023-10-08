@@ -1,6 +1,13 @@
+import DronSpeech from "./speech/dron-speech.js";
+
+const hasXml = text => text.indexOf("<")>=0 && text.indexOf(">")>=0
+const assureXml = (sentence) => hasXml(sentence) ? `<?xml version="1.0" encoding="UTF-8"?>${sentence}` : sentence
 export class TTSRenderer {
     constructor(fieldName) {
         this.fieldName = fieldName
+        this.dronSpeech = new DronSpeech({
+          lang: "es-ES"        
+        })
     }
 
 
@@ -9,23 +16,7 @@ export class TTSRenderer {
         const spacesRemoved = strippedResponse.replace(/ +/g, ' ');
         document.getElementById(this.fieldName).innerHTML = spacesRemoved        
 
-        const ut = new SpeechSynthesisUtterance('No warning should arise');
-        ut.onerror = function (event) {
-            console.error("SpeechSynthesisUtterance.onerror", event);
-          };
-  
-window.speechSynthesis.speak(ut);
-return;
-        const utterThis = new SpeechSynthesisUtterance(sentence);
-
-        utterThis.onend = function (event) {
-          console.log("SpeechSynthesisUtterance.onend");
-        };
-    
-        utterThis.onerror = function (event) {
-          console.error("SpeechSynthesisUtterance.onerror", event);
-        };
-    
-        window.speechSynthesis.speak(utterThis);
+        
+        this.dronSpeech.speak(assureXml(sentence))
       }
     }
