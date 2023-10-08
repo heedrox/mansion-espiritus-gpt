@@ -3,13 +3,13 @@ import { GptTextParser }  from './app/parser/gpt-text-parser.js';
 import {ScureCliApp} from './scure-cli/index.js';
 import { SimpleParser } from './scure-cli/simple-parser/index.js';
 import env from './env.js'
-import { HTMLrenderer } from './app/output/html-renderer.js';
+import { TTSRenderer } from './app/output/tts-renderer.js';
 
 if (window && !window.global) window.global = { }
 
 const superCutreParser = new SimpleParser()
 const improvedParser = new GptTextParser(env.OPEN_AI_KEY)
-const renderer = new HTMLrenderer("content")
+const renderer = new TTSRenderer("content")
 const app = new ScureCliApp({
     data: data['es'],
     parser: improvedParser,
