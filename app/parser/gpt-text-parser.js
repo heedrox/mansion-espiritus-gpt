@@ -4,8 +4,8 @@ const buildPrompt = (conversation, texto) =>
     (`La conversación anterior ha sido:
     ${conversation.map(({user, sentence}) => `${user}> ${sentence}`).join("\n")}
     
-    El usuario ahora dice: 
-    USER>${texto}
+    --- Fin conversación anterior ---
+    Parsea la siguiente instrucción: ${texto}
     `)
     
 export class GptTextParser {
@@ -28,6 +28,6 @@ export class GptTextParser {
     }
 
     async parse(text, conversation = []) {
-        return text ? this.parseWithGpt(text, conversation.length >= 4 ? conversation.slice(-4) : conversation ) : {}
+        return text ? this.parseWithGpt(text, conversation.length >= 4 ? conversation.slice(-4,-1) : conversation ) : {}
     }
 }

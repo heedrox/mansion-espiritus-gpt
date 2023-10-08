@@ -1,6 +1,7 @@
 import { GptTextParser } from "../../app/parser/gpt-text-parser"
+import env from '../../env.js'
 
-const OPEN_AI_KEY = process.env.OPEN_AI_KEY
+const OPEN_AI_KEY = env.OPEN_AI_KEY
 
 describe('Gpt Text parser', () => {
     it('parses an empty text', async () => {
