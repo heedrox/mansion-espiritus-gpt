@@ -10,5 +10,5 @@ export default {
     filename: 'main.js',
     path: path.resolve(__dirname, 'web'),
   },
-  stats: false
+  stats: true
 };
