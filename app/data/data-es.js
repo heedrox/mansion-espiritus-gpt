@@ -59,7 +59,7 @@ export default {
       aCondDesc('unlocked:killed-spirit-fire', 'En la cocina veo una mesa con un vaso de agua y un armario.'),
     ]),
     aRoom('sala-estar', 'sala de estar', syns.rooms['sala-estar'], [
-      aCondDesc('!unlocked:killed-spirit-wolf', WOLF_AUDIO + 'Eso es un espíritu de un lobo que se mueve por la habitación. Además, en el salón veo una chimenea y un cuadro encima.'),
+      aCondDesc('!unlocked:killed-spirit-wolf', WOLF_AUDIO + 'Veo el espíritu de un lobo que se mueve por la habitación. Además, en el salón veo una chimenea y un cuadro encima.'),
       aCondDesc('unlocked:killed-spirit-wolf', 'Este salón tiene una chimenea y un cuadro encima.'),
     ]),
     aRoom('dormitorio', 'dormitorio', syns.rooms['dormitorio'], [

@@ -5,7 +5,7 @@ const buildPrompt = (conversation, texto) =>
     ${conversation.map(({user, sentence}) => `${user}> ${sentence}`).join("\n")}
     
     --- Fin conversación anterior ---
-    Parsea la siguiente instrucción: ${texto}
+    <COMANDO>${texto}</COMANDO>
     `)
     
 export class GptTextParser {
