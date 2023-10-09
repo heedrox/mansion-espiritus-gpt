@@ -4,6 +4,9 @@ const getArg = (data) => {
     return [ data[1], data[2] ]
 }
 
+// SimpleParser allows to add text in the following format:
+// `command` or `command,item1` or `command,item1,item2`
+// command can be: walk, look, inventory, help, use, pickup, 
 export class SimpleParser {
     async parse(text) {
         const data = text.split(',')
