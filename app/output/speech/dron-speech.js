@@ -4,7 +4,6 @@ export default class DronSpeech {
     this.callback = options.callback ? options.callback : () => {};
     this.interval = null;
     this.maleVoice = speechSynthesis.getVoices().find(({ name }) => name.toLowerCase().includes("male"));
-    console.log(speechSynthesis.getVoices(), this.maleVoice)
   }
 
   speak(text) {
@@ -23,6 +22,11 @@ export default class DronSpeech {
       speech.addEventListener('end', () => {
         this.clearInterval();
         this.callback();
+      });
+      speech.addEventListener('boundary', (evt) => {
+        const text = evt.target.text
+        const word = text.substring(evt.charIndex, evt.charIndex + evt.charLength)
+        console.log(word, evt.charIndex, evt.charLength)
       });
       this.interval = setInterval(() => {
         if (!window.speechSynthesis.speaking) {

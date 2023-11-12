@@ -12,11 +12,12 @@ export class TTSRenderer {
 
 
     render(sentence) {
+      console.log(sentence)
         const strippedResponse = sentence.replace(/<[^>]*>?/gm, '');
         const spacesRemoved = strippedResponse.replace(/ +/g, ' ');
         document.getElementById(this.fieldName).innerHTML = spacesRemoved        
 
         
-        this.dronSpeech.speak(assureXml(sentence))
+        this.dronSpeech.speak(spacesRemoved)
       }
     }
