@@ -1,0 +1,8 @@
+{
+    "jest.nodeEnv": {
+        "NODE_VERSION": "18"
+    },
+    "jest.jestCommandLine": "~/.nvm/nvm-exec npx jest",
+    "jest.shell": "/bin/zsh",
+    "typescript.tsserver.nodePath": "/Users/jmarti/.nvm/versions/node/v18.15.0/bin/node"
+} 

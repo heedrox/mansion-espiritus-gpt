@@ -42,10 +42,13 @@
     }
   },
   "dependencies": {
+    "@ai-sdk/openai": "^1.3.3",
+    "ai": "^4.2.6",
     "dotenv": "^16.3.1",
     "https-proxy-agent": "^3.0.0",
     "pluralize": "^7.0.0",
-    "scure": "1.6.0"
+    "scure": "1.6.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",
@@ -57,13 +60,17 @@
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   },
+  "volta": {
+    "node": "18.17.0",
+    "npm": "10.2.5"
+  },
   "babel": {
     "presets": [
       [
         "@babel/preset-env",
         {
           "targets": {
-            "node": "current"
+            "node": "18"
           }
         }
       ]

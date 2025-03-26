@@ -35,14 +35,14 @@ export const queryGpt = async (prompt, openAiKey) => {
   const response = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "post",
     body: JSON.stringify({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system", content: ROLE_SYSTEM_INSTRUCTIONS,
         },
         {role: "user", content: prompt},
       ],
-      temperature: 0.75,
+      temperature: 0,
       max_tokens: 600,
     }),
     headers: {
