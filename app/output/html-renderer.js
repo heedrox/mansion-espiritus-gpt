@@ -6,7 +6,7 @@ export class HTMLRenderer {
     render(sentence) {
         const strippedResponse = sentence.replace(/<[^>]*>?/gm, '');
         const spacesRemoved = strippedResponse.replace(/ +/g, ' ');
-        document.getElementById(this.fieldName).innerHTML = spacesRemoved        
-      }
+        document.getElementById(this.fieldName).innerHTML = spacesRemoved
     }
 }
+

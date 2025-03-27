@@ -2,14 +2,15 @@ import { data } from './app/data/data.js';
 import { ScureCliApp } from './scure-cli/index.js';
 import { SimpleParser } from './scure-cli/simple-parser/index.js';
 import env from './env.js'
-import { HTMLrenderer } from './app/output/html-renderer.js';
-import GptParser from './app/parser/gpt-parser.js';
+import { HTMLRenderer } from './app/output/html-renderer.js';
+import { TTSRenderer } from './app/output/tts-renderer.js';
+import {GptTextParser} from './app/parser/gpt-text-parser.js';
 
 if (window && !window.global) window.global = { }
 
 const superCutreParser = new SimpleParser()
-const improvedParser = new GptTextParser(env.OPEN_AI_KEY)
-const renderer = new HTMLrenderer("content")
+const gptParser = new GptTextParser(env.OPEN_AI_KEY)
+const renderer = new HTMLRenderer("content")
 const ttsRenderer = new TTSRenderer("content")
 const app = new ScureCliApp({
     data: data['es'],
