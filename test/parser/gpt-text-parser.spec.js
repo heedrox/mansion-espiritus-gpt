@@ -4,10 +4,7 @@ import env from '../../env.js'
 const OPEN_AI_KEY = env.OPEN_AI_KEY
 
 describe('Gpt Text parser', () => {
-    it('shows node version', () => {
-        console.log('Node version:', process.version)
-        expect(true).toBe(true)
-    })
+
     it('parses an empty text', async () => {
         const parser = new GptTextParser(OPEN_AI_KEY)
         const response = await parser.parse('')

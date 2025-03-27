@@ -1,6 +1,3 @@
-import { generateText } from 'ai';
-import { createOpenAI, openai } from '@ai-sdk/openai';
-
 const ROLE_SYSTEM_INSTRUCTIONS = `Eres un parseador de texto para aventuras gráficas. El usuario indica, delimitado por tags xml <COMANDO></COMANDO>, lo que quiere hacer en lenguaje natural, y tú lo conviertes en un JSON con el siguiente formato:
 \`\`\`
 {
@@ -34,25 +31,33 @@ const doesItLookLikeSystemInstructions = (message) => {
   return percentageMatch >= 0.5;
 };
 
-
 export const queryGpt = async (prompt, openAiKey) => {
-  const openAiModel = createOpenAI({
-    apiKey: openAiKey
-  })
-  const response = await generateText({
-    model: openAiModel("gpt-4o-mini"),
-    messages: [
-      {        
-        role: "system", content: ROLE_SYSTEM_INSTRUCTIONS,
-      },
-      {role: "user", content: prompt},
-    ],
-    temperature: 0,
-    max_tokens: 600
-  })
+  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "post",
+    body: JSON.stringify({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system", content: ROLE_SYSTEM_INSTRUCTIONS,
+        },
+        {role: "user", content: prompt},
+      ],
+      temperature: 0,
+      max_tokens: 600,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${openAiKey}`,
+      "Hello-From": "EscapeFromTheMaldicionEspiritus",
+    },
+  });
 
+  if (!response.ok) {
+    throw response;
+  }
 
-  const messageContent = response.text;
+  const responseJson = await response.json();
+  const messageContent = responseJson.choices[0].message.content;
 
   if (doesItLookLikeSystemInstructions(messageContent)) {
     return "Something went wrong. Sorry, try again";
@@ -60,3 +65,4 @@ export const queryGpt = async (prompt, openAiKey) => {
 
   return messageContent;
 };
+

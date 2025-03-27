@@ -4,5 +4,6 @@
     },
     "jest.jestCommandLine": "~/.nvm/nvm-exec npx jest",
     "jest.shell": "/bin/zsh",
+    "jest.runMode": "on-demand",
     "typescript.tsserver.nodePath": "/Users/jmarti/.nvm/versions/node/v18.15.0/bin/node"
 } 
