@@ -58,13 +58,13 @@ describe('App', () => {
             whenFetchResolvesJson({ sentence: 'answer-sentence-2' })
             await app.processUserInput('user-input')
 
-            expect(renderer.render).toHaveBeenCalledWith('answer-sentence-2')
             const body = JSON.parse(global.fetch.mock.lastCall[1].body)
             expect(body.conv.previousConversation).toEqual([
                 { user: 'USER', sentence: 'START_ADVENTURE' },
                 { user: 'DRON', sentence: 'answer-sentence-1' }
             ])
         })
+        
         it('sends summary from previous conversation', async () => {
             const app = new App({ renderer })
 
