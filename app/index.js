@@ -15,7 +15,7 @@ export class App {
     }
 
     async _apiCall(text) {
-        const response = await fetch(`${env.API_URL}`, {
+        const response = await fetch(env.API_URL, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
