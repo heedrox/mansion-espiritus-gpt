@@ -4,6 +4,7 @@ export class App {
     constructor({ renderer }) {
         this.renderer = renderer
         this.previousConversation = []
+        this.summary = undefined
     }
 
     async start() {
@@ -16,6 +17,7 @@ export class App {
         this.renderer.render(response.sentence)
         this.previousConversation.push(userInput(text))
         this.previousConversation.push(dronAnswer(response.sentence))        
+        this.summary = response.summary
     }
 
     async _apiCall(text) {
@@ -29,7 +31,8 @@ export class App {
                 language: "es",
                 conv: {
                     previousConversation: this.previousConversation
-                }   
+                },
+                summary: this.summary  
             })
         })
         return response.json()

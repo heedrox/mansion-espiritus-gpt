@@ -75,5 +75,28 @@ describe('App', () => {
                     })
                 })
         })
+        it('sends summary from previous conversation', async () => {
+            const app = new App({ renderer })
+
+            whenFetchResolvesJson({ sentence: 'answer-sentence-1', summary: 'a-summary' })
+            await app.start()
+            whenFetchResolvesJson({ sentence: 'answer-sentence-2' })
+            await app.processUserInput('user-input')
+
+            expect(global.fetch).toHaveBeenCalledWith(expect.anything(),
+                {
+                    method: expect.anything(),
+                    headers: expect.anything(),
+                    body: JSON.stringify({
+                        text: 'user-input',
+                        language: 'es',
+                        conv: { previousConversation: [
+                            { user: 'USER', sentence: 'START_ADVENTURE' },
+                            { user: 'DRON', sentence: 'answer-sentence-1' }
+                        ] },
+                        summary: 'a-summary'
+                    })
+                })
+        })
     })
 })
