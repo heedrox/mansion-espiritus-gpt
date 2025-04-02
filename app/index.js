@@ -6,7 +6,6 @@ export class App {
     }
 
     async start() {
-        console.log("Starting app...")
         const response = await this._apiCall('START_ADVENTURE')
         this.renderer.render(response.sentence)
     }

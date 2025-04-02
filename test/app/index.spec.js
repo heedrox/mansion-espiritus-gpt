@@ -1,13 +1,30 @@
 import { App } from '../../app/index.js'
 
 const renderer = {
-    render: () => {}
+    render: jest.fn()
+}
+
+global.fetch = jest.fn()
+
+const whenFetchResolvesJson = (data) => {
+    global.fetch = jest.fn(() =>
+        Promise.resolve({
+            json: () => Promise.resolve(data)
+        })
+    );
 }
 
 describe('App', () => {
-    it('starts', async () => {
-        const app = new App(renderer)
+    beforeEach(() => {
+        global.fetch.mockClear();
+    });
 
-        expect(app.start).toBeDefined()
+    it('starts', async () => {
+        whenFetchResolvesJson({ sentence: 'a-sentence'})
+        const app = new App({ renderer })
+
+        await app.start()
+
+        expect(renderer.render).toHaveBeenCalledWith('a-sentence')
     })
 })
