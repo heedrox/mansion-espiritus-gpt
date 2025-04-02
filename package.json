@@ -3,52 +3,14 @@
   "description": "Evita que el infierno se desate en la tierra. Un escape room para Google Assis basado en el juego de cartas de Mallory Mansion.",
   "scripts": {
     "lint": "eslint .",
-    "start": "npm run shell",
     "test": "jest test/**/*.spec.js",
     "tdd": "jest --watch test/**/*.spec.js",
     "compile": "webpack --config webpack.config.js",
-    "compile:watch": "webpack --watch --config webpack.config.js",
-    "walkthrough": "node app/walkthrough/walkthrough.js"
+    "compile:watch": "webpack --watch --config webpack.config.js"
   },
-  "watch": {
-    "walkthrough": {
-      "patterns": [
-        ".",
-        "walkthrough",
-        "intents",
-        "lib",
-        "scure"
-      ],
-      "extensions": "js",
-      "quiet": true,
-      "legacyWatch": true,
-      "delay": 1000,
-      "inherit": true
-    },
-    "test": {
-      "patterns": [
-        ".",
-        "app",
-        "data",
-        "intents",
-        "lib",
-        "scure"
-      ],
-      "extensions": "js",
-      "quiet": true,
-      "legacyWatch": true,
-      "delay": 1000,
-      "inherit": true
-    }
-  },
+
   "dependencies": {
-    "@ai-sdk/openai": "^1.3.3",
-    "ai": "^4.2.6",
-    "dotenv": "^16.3.1",
-    "https-proxy-agent": "^3.0.0",
-    "pluralize": "^7.0.0",
-    "scure": "1.6.0",
-    "zod": "^3.24.2"
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",
@@ -70,7 +32,11 @@
         "@babel/preset-env",
         {
           "targets": {
-            "node": "18"
+            "browsers": [
+              "last 2 versions",
+              "> 0.25%",
+              "not dead"
+            ]
           }
         }
       ]
