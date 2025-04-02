@@ -3,15 +3,19 @@ import env from '../env.js'
 export class App {
     constructor({ renderer }) {
         this.renderer = renderer
+        this.previousConversation = []
     }
 
     async start() {
-        const response = await this._apiCall('START_ADVENTURE')
-        this.renderer.render(response.sentence)
+        await this.processUserInput('START_ADVENTURE')
     }
+
     async processUserInput(text) {
+        
         const response = await this._apiCall(text)
         this.renderer.render(response.sentence)
+        this.previousConversation.push(userInput(text))
+        this.previousConversation.push(dronAnswer(response.sentence))        
     }
 
     async _apiCall(text) {
@@ -24,10 +28,13 @@ export class App {
                 text,
                 language: "es",
                 conv: {
-                    previousConversation: []
+                    previousConversation: this.previousConversation
                 }   
             })
         })
         return response.json()
     }
 }
+
+const userInput = (sentence) => ({ user: 'USER', sentence })
+const dronAnswer = (sentence) => ({ user: 'DRON', sentence })
