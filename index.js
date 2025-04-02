@@ -1,6 +1,11 @@
 import env from './env.js'
+import { App } from './app/index.js'
+import { HTMLRenderer } from './app/output/html-renderer.js'
 
-const processUserInput = (evt) => {
+const htmlRenderer = new HTMLRenderer("content")
+const app = new App({ renderer: htmlRenderer})
+
+const processUserInput = async (evt) => {
     evt.preventDefault();
     try {
         const text = document.getElementById("userInput").value
@@ -8,7 +13,7 @@ const processUserInput = (evt) => {
             document.getElementById("content").innerHTML = "..."
             document.getElementById("userInput").value = ""
             document.getElementById("userInput").focus()
-            app.processUserInput(text);                
+            await app.processUserInput(text);                
         }
     } catch (err) {
         console.error(err)
@@ -19,8 +24,8 @@ const processUserInput = (evt) => {
 
 ;(async() => {
     document.getElementById("userInputForm").addEventListener("submit", processUserInput)
-    document.getElementById("button-start").addEventListener("click", () => {
-        app.start()
+    document.getElementById("button-start").addEventListener("click", async () => {
+        await app.start()
         document.getElementById("play-area").classList.remove("invisible")
         document.getElementById("start-area").classList.add("d-none")
     })    

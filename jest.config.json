@@ -1,5 +1,5 @@
 {
-    "setupFilesAfterEnv": ["<rootDir>/test/common.js", "dotenv/config"],
+    "setupFilesAfterEnv": [ "dotenv/config"],
     "transformIgnorePatterns": [
         "node_modules/(?!(node-fetch)/)"
       ],
