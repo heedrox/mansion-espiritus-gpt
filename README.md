@@ -14,3 +14,8 @@ En este caso, el JSON es: https://github.com/heedrox/mansion-espiritus/blob/mast
 
 SCURE: https://github.com/heedrox/scure
 
+----
+TODO:
+- Timeover => intenta hacer un conv.close() y no existe y crashea.
+- Mira la cocina (cocina = room) => no te hace caso y dice que no encuentra ese objeto
+- Podriamos enriquecer el prompt con los objetos que hay disponibles en scure.
