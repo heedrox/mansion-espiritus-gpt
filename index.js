@@ -24,9 +24,10 @@ const processUserInput = async (evt) => {
 ;(async() => {
     document.getElementById("userInputForm").addEventListener("submit", processUserInput)
     document.getElementById("button-start").addEventListener("click", async () => {
+        document.getElementById("start-area").classList.add("d-none")
         await app.start()
         document.getElementById("play-area").classList.remove("invisible")
-        document.getElementById("start-area").classList.add("d-none")
+        
     })    
 })()
 
