@@ -27,24 +27,28 @@ export class HTMLRenderer {
             document.getElementById("last-dron-answer").removeAttribute("id")
         }
         node.id = "last-dron-answer"
-        node.scrollIntoView({ 
-            behavior: "smooth", 
-            block: "end",
-            inline: "nearest"
-        })
-        window.scrollBy(0, 100)
+        this.scrollToBottom()
     }
     renderResponse(sentence) {
         const strippedResponse = sentence.replace(/<[^>]*>?/gm, '');
         const spacesRemoved = strippedResponse.replace(/ +/g, ' ');
         const node = document.getElementById("last-dron-answer")
-        node.innerHTML = spacesRemoved
-        node.scrollIntoView({ 
-            behavior: "smooth", 
-            block: "end",
-            inline: "nearest"
-        })
-        window.scrollBy(0, 100)
+        node.innerHTML = spacesRemoved  
+        this.scrollToBottom()
+    }
+
+    scrollToBottom() {
+        setTimeout(() => {
+            const node = document.getElementById("last-dron-answer")
+            if (document.getElementsByClassName("content-box").length > 2) {
+                node.scrollIntoView({ 
+                behavior: "smooth", 
+                block: "end",
+                inline: "nearest"
+            })
+                window.scrollBy(0, 100)
+            }
+        }, 100)
     }
 }
 
