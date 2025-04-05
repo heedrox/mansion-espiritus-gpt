@@ -2,7 +2,7 @@ import env from './env.js'
 import { App } from './app/index.js'
 import { HTMLRenderer } from './app/output/html-renderer.js'
 
-const htmlRenderer = new HTMLRenderer("content")
+const htmlRenderer = new HTMLRenderer()
 const app = new App({ renderer: htmlRenderer})
 
 const processUserInput = async (evt) => {
@@ -10,7 +10,6 @@ const processUserInput = async (evt) => {
     try {
         const text = document.getElementById("userInput").value
         if (text) {
-            document.getElementById("content").innerHTML = "..."
             document.getElementById("userInput").value = ""
             document.getElementById("userInput").focus()
             await app.processUserInput(text);                

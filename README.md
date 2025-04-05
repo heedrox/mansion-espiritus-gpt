@@ -19,3 +19,4 @@ TODO:
 - Timeover => intenta hacer un conv.close() y no existe y crashea.
 - Mira la cocina (cocina = room) => no te hace caso y dice que no encuentra ese objeto
 - Podriamos enriquecer el prompt con los objetos que hay disponibles en scure.
+- UI con globos en vez de 

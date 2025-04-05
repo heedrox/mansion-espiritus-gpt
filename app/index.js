@@ -13,9 +13,10 @@ export class App {
     }
 
     async processUserInput(text) {
-        
+        this.renderer.addUserInput(text)
+        this.renderer.setAsWaiting()
         const response = await this._apiCall(text)
-        this.renderer.render(response.sentence)
+        this.renderer.renderResponse(response.sentence)
         this.previousConversation.push(userInput(text))
         this.previousConversation.push(dronAnswer(response.sentence))        
         this.summary = response.summary ? response.summary : this.summary
