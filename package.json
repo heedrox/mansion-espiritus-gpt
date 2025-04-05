@@ -6,7 +6,7 @@
     "test": "jest test/**/*.spec.js",
     "tdd": "jest --watch test/**/*.spec.js",
     "clean": "rm -f web/main.*.js",
-    "compile": "npm run clean && webpack --config webpack.config.js",
+    "compile": "npm run clean && cp env.prod.js env.js && webpack --config webpack.config.js",
     "compile:watch": "npm run clean && webpack --watch --config webpack.config.js"
   },
   "dependencies": {
