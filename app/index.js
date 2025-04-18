@@ -9,6 +9,7 @@ export class App {
     }
 
     async start() {
+        this.renderer.start()
         await this.processUserInput('START_ADVENTURE')
     }
 
@@ -21,6 +22,9 @@ export class App {
         this.previousConversation.push(dronAnswer(response.sentence))        
         this.summary = response.summary ? response.summary : this.summary
         this.convData = response.conv?.data ? response.conv.data : this.convData
+        if (response.isEnd) {
+            this.renderer.end()
+        }
     }
 
     async _apiCall(text) {

@@ -25,10 +25,12 @@ const processUserInput = async (evt) => {
     document.getElementById("userInputForm").addEventListener("submit", processUserInput)
     document.getElementById("button-start").addEventListener("click", async () => {
         document.getElementById("start-area").classList.add("d-none")
-        await app.start()
         document.getElementById("play-area").classList.remove("invisible")
-        
+        await app.start()                
     })    
+    document.getElementById("button-restart").addEventListener("click", async () => {
+        window.location.reload()
+    })   
 })()
 
 

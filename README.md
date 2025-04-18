@@ -16,7 +16,8 @@ SCURE: https://github.com/heedrox/scure
 
 ----
 TODO:
-- Timeover => intenta hacer un conv.close() y no existe y crashea.
-- Mira la cocina (cocina = room) => no te hace caso y dice que no encuentra ese objeto
-- Podriamos enriquecer el prompt con los objetos que hay disponibles en scure.
-- UI con globos en vez de 
+- Hacer bien el final.
+- Timeover => intenta hacer un conv.close() y no existe y crashea. => quitar el tiempo, no aporta. Pero al finalizar, mostrar el tiempo que te ha llevado.
+- Sonidos, y que las frases vayan acorde al tiempo del sonido
+- Abre el baul con el codigo 1234 -> OK
+- gemmini => probado, muy mal -> OK

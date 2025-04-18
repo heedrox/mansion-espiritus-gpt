@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>SSML Simulación</title>
+</head>
+<body>
+  <button onclick="playScene()">Iniciar escena</button>
+
+  <script>
+    function speak(text, lang = 'es-ES') {
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = lang;
+      utter.rate = 1;
+      utter.pitch = 1;
+      utter.volume = 1;
+      speechSynthesis.speak(utter);
+    }
+
+    function playScene() {
+      // Sonido de cuervos (al principio)
+      const crows = new Audio('https://actions.google.com/sounds/v1/animals/crows_caw_in_field.ogg');
+      crows.volume = 1;
+      crows.play();
+
+      // Después de 1s: habla Dron Johnson
+      setTimeout(() => {
+        const text = `¡Hola! Soy Dron Johnson. Encantado de conocerte. 
+Estoy en las afueras de una mansión, donde los espíritus campan a sus anchas, ya que se ha abierto una puerta que lleva al inframundo. 
+Voy a entrar yo solo, ya que es demasiado peligrosa para humanos. 
+Tú dame instrucciones y yo las ejecutaré. Voy a entrar.`;
+        speak(text);
+      }, 1000);
+
+      // Después de unos 10 segundos: sonido de puerta (del segundo 1 al 6)
+      setTimeout(() => {
+        const door = new Audio('https://actions.google.com/sounds/v1/doors/opening_closing_heavy_door.ogg');
+        door.currentTime = 1;
+        door.volume = 1;
+        door.play();
+
+        // Parar el audio en el segundo 6
+        setTimeout(() => door.pause(), 5000);
+      }, 10000);
+
+      // Después de 17 segundos: habla Dron de nuevo
+      setTimeout(() => {
+        const finalText = `De acuerdo, ya estoy en el recibidor. Aquí veo una estantería, un mural en la pared, un baúl y una mesa. 
+¡Tenemos 20 minutos! ¡Rápido! Dime qué hacemos.`;
+        speak(finalText);
+      }, 17000);
+    }
+  </script>
+</body>
+</html>

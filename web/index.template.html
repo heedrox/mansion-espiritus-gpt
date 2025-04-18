@@ -40,8 +40,15 @@
   </head>
   <body>
     <img class="img-fluid"  src="./img/dron.jpg" />
-    <div id="start-area" class="col-md-12 text-center p-5">
-      <button class="btn btn-danger m-auto" type="button" id="button-start">EMPEZAR</button>
+    <div id="start-area" >
+      <p class="content-box p-3 dron-answer" id="begin-text">¡Hola! Soy Dron Johnson. Encantado de conocerte.
+  Estoy en las afueras de una mansión, donde los espíritus campan a sus anchas, ya que se ha abierto una puerta que lleva al inframundo.
+  Voy a entrar yo solo, ya que es demasiado peligrosa para humanos. 
+   Tú dame instrucciones y yo las ejecutaré. Voy a entrar.
+        </p>
+      <div class="text-center">
+        <button class="btn btn-danger m-auto" type="button" id="button-start">Adelante, ¡EMPECEMOS!</button>
+      </div>
     </div>
     <div id="play-area" class="invisible">
       <form id="userInputForm">     
@@ -51,5 +58,8 @@
           </div>
       </form>
     </div>    
+    <div id="end-area" class="col-md-12 text-center p-5 invisible">
+      <button class="btn btn-danger m-auto" type="button" id="button-restart">REINICIAR</button>
+    </div>
   </body>
 </html>

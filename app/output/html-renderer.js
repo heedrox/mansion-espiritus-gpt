@@ -5,6 +5,13 @@ export class HTMLRenderer {
         this.userClass = "user-input"
     }
 
+    start() {
+        const node = document.getElementById("begin-text")
+        node.parentElement.removeChild(node)
+        const newNode = this.getContentField(node.innerHTML)
+        newNode.classList.add(this.dronClass)
+    }
+
     getContentField(html) {
         const node = document.createElement("div")
         node.classList.add("content-box")
@@ -14,10 +21,8 @@ export class HTMLRenderer {
         return node
     }
     addUserInput(text) {
-        if (text === 'START_ADVENTURE') {
-            return
-        }
-        const node = this.getContentField(text)
+        const textToShow = text === 'START_ADVENTURE' ? "Adelante, ¡EMPECEMOS!" : text
+        const node = this.getContentField(textToShow)
         node.classList.add(this.userClass)        
     }
     setAsWaiting() {
@@ -49,6 +54,10 @@ export class HTMLRenderer {
                 window.scrollBy(0, 100)
             }
         }, 100)
+    }
+
+    end() {
+        document.getElementById("play-area").classList.remove("invisible")        
     }
 }
 
